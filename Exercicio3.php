@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercício 2 - Calcular a tabuada</title>
+    <title>Exercício 3 - Informar positivo, negativo ou zero</title>
 </head>
 
 <body>
-    
-    <h1>Exercicio 2 - Calcular a tabuada</h1>    
+    <h1>Exercício 3 - Informar positivo, negativo ou zero</h1>
     <form method="post">
         <label for="numero">Digite um número:</label>
         <input type="number" id="numero" name="numero" required>
-        <button type="submit">Calcular</button>
+        <button type="submit">Verificar</button>
     </form>
 
-    <?php 
+    <?php
     if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (isset($_POST['numero'])) {
             $numero = $_POST['numero'];
 
-            echo "<h2>Tabuada do $numero:</h2>";
-            echo "<ul>";
-            for ($i = 1; $i <= 10; $i++) {
-                $resultado = $numero * $i;
-                echo "<li>$numero x $i = $resultado</li>";
+            if ($numero > 0) {
+                echo "<p>O número $numero é Positivo.</p>";
+            } elseif ($numero < 0) {
+                echo "<p>O número $numero é Negativo.</p>";
+            } else {
+                echo "<p>O número é Zero.</p>";
             }
-            echo "</ul>";
         }
     }
     ?>
-
 </body>
